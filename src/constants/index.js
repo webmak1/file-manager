@@ -21,7 +21,7 @@ export const OPERATIONS = {
   CD: 'cd',
   LS: 'ls',
   CAT: 'cat',
-  ADD: 'cat',
+  ADD: 'add',
   RN: 'rn',
   CP: 'cp',
   MV: 'mv',

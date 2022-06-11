@@ -27,6 +27,24 @@ export const operationsController = async input => {
     case OPERATIONS.DECOMPRESS:
       await commands.decompressHandler(args);
       break;
+    case OPERATIONS.CAT:
+      await commands.catHandler(args);
+      break;
+    case OPERATIONS.ADD:
+      await commands.addHandler(args);
+      break;
+    case OPERATIONS.RN:
+      await commands.rnHandler(args);
+      break;
+    case OPERATIONS.CP:
+      await commands.cpHandler(args);
+      break;
+    case OPERATIONS.MV:
+      await commands.mvHandler(args);
+      break;
+    case OPERATIONS.RM:
+      await commands.rmHandler(args);
+      break;
     default:
       console.error(ERROR_MESSAGES.INV_INPUT);
   }

@@ -1,5 +1,9 @@
 import { stat } from 'fs/promises';
-import { USERNAME_ARG_NAME, OPERATIONS } from '../constants/index.js';
+import {
+  USERNAME_ARG_NAME,
+  OPERATIONS,
+  ERROR_MESSAGES,
+} from '../constants/index.js';
 
 export const getUserNameFromCommandLine = argv => {
   return argv
@@ -39,4 +43,18 @@ export const parseArgs = argString => {
       .filter(item => !!item);
   }
   return argString.split(' ');
+};
+
+export const logCommandError = () => {
+  console.log(`\x1b[31m${ERROR_MESSAGES.INV_INPUT}\x1b[0m\n`);
+};
+
+export const logOperationError = () => {
+  console.log(`\x1b[31m${ERROR_MESSAGES.OPERATION_FAILED}\x1b[0m\n`);
+};
+
+export const handleStreamError = stream => {
+  stream.on('error', () => {
+    logOperationError();
+  });
 };

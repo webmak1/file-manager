@@ -21,7 +21,7 @@ export const init = () => {
     });
 
     rl.on('line', async line => {
-      isExit(line) ? rl.close() : console.log(line);
+      if (isExit(line)) rl.close();
       await operationsController(line);
       console.log(
         MESSAGES.CURRENT_DIR.replace(TOKEN, process.env.APP_CUR_DIRECTORY)
