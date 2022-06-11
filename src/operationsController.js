@@ -15,6 +15,12 @@ export const operationsController = async input => {
     case OPERATIONS.LS:
       await commands.lsHandler();
       break;
+    case OPERATIONS.OS:
+      commands.osHandler(args);
+      break;
+    case OPERATIONS.HASH:
+      await commands.hashHandler(args);
+      break;
     default:
       console.error(ERROR_MESSAGES.INV_INPUT);
   }

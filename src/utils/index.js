@@ -15,7 +15,7 @@ export const getOperationAndArguments = input => {
   const trimmedInput = input.trim();
   const idx = trimmedInput.indexOf(' ');
   return idx !== -1
-    ? [trimmedInput.slice(0, idx), trimmedInput.slice(idx + 1)]
+    ? [trimmedInput.slice(0, idx), trimmedInput.slice(idx + 1).trim()]
     : [trimmedInput, null];
 };
 
@@ -25,4 +25,8 @@ export const isPathExists = async path => {
     .catch(() => {
       return false;
     });
+};
+
+export const getClockRateInGHz = clockRate => {
+  return Math.floor(clockRate / 100) / 10;
 };

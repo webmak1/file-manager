@@ -32,3 +32,11 @@ export const OPERATIONS = {
   DECOMPRESS: 'decompress',
   EXIT: '.exit',
 };
+
+export const OS = {
+  EOL: '--EOL',
+  CPUS: '--cpus',
+  HOME_DIR: '--homedir',
+  SYS_USER_NAME: '--username',
+  ARCH: '--architecture',
+};
