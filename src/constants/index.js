@@ -7,6 +7,10 @@ export const MESSAGES = {
   BYE: `\x1b[35mThank you for using File Manager, ${TOKEN}!\x1b[0m`,
 };
 
+export const ERROR_NAMES = {
+  INV_INPUT: 'InvalidInput',
+};
+
 export const ERROR_MESSAGES = {
   INV_INPUT: 'Invalid input',
   OPERATION_FAILED: 'Operation failed',

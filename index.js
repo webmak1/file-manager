@@ -1,5 +1,3 @@
-import { App } from './src/app.js';
+import { init } from './src/app.js';
 
-const app = new App();
-
-app.init();
+init();
