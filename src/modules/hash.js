@@ -1,7 +1,7 @@
 import { createReadStream } from 'fs';
 import { resolve } from 'path';
 import { createHash } from 'crypto';
-import { ERROR_MESSAGES } from '../constants/index.js';
+import { logOperationError } from '../utils/index.js';
 
 export const hashHandler = async path => {
   try {
@@ -13,6 +13,6 @@ export const hashHandler = async path => {
       chunk ? hash.update(chunk) : console.log(hash.digest('hex'));
     });
   } catch {
-    console.error(ERROR_MESSAGES.OPERATION_FAILED);
+    logOperationError();
   }
 };

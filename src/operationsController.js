@@ -1,6 +1,6 @@
-import { ERROR_MESSAGES, OPERATIONS } from './constants/index.js';
+import { OPERATIONS } from './constants/index.js';
 import commands from './modules/index.js';
-import { getOperationAndArguments } from './utils/index.js';
+import { getOperationAndArguments, logCommandError } from './utils/index.js';
 
 export const operationsController = async input => {
   const [operation, args] = getOperationAndArguments(input);
@@ -46,6 +46,6 @@ export const operationsController = async input => {
       await commands.rmHandler(args);
       break;
     default:
-      console.error(ERROR_MESSAGES.INV_INPUT);
+      logCommandError();
   }
 };

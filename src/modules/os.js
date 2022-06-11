@@ -1,6 +1,6 @@
 import os from 'os';
-import { ERROR_MESSAGES, OS } from '../constants/index.js';
-import { getClockRateInGHz } from '../utils/index.js';
+import { OS } from '../constants/index.js';
+import { getClockRateInGHz, logOperationError } from '../utils/index.js';
 
 export const osHandler = async arg => {
   switch (arg) {
@@ -25,7 +25,7 @@ export const osHandler = async arg => {
       console.log(os.arch());
       break;
     default:
-      console.error(ERROR_MESSAGES.OPERATION_FAILED);
+      logOperationError();
       break;
   }
 };

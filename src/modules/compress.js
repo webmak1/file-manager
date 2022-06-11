@@ -2,7 +2,7 @@ import { createReadStream, createWriteStream } from 'fs';
 import { createBrotliCompress, createBrotliDecompress } from 'zlib';
 import path from 'path';
 import { ERROR_MESSAGES } from '../constants/index.js';
-import { parseArgs } from '../utils/index.js';
+import { parseArgs, logOperationError } from '../utils/index.js';
 
 export const compressHandler = async args => {
   const compressing = createBrotliCompress();
@@ -29,6 +29,6 @@ const createTransformingPipe = (args, transformStream) => {
 
     readable.pipe(transformStream).pipe(writable);
   } catch {
-    console.error(ERROR_MESSAGES.OPERATION_FAILED);
+    logOperationError();
   }
 };
