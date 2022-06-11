@@ -7,7 +7,7 @@ export const operationsController = async input => {
 
   switch (operation) {
     case OPERATIONS.UP:
-      commands.upHandler();
+      await commands.upHandler();
       break;
     case OPERATIONS.CD:
       await commands.cdHandler(args);
@@ -20,6 +20,12 @@ export const operationsController = async input => {
       break;
     case OPERATIONS.HASH:
       await commands.hashHandler(args);
+      break;
+    case OPERATIONS.COMPRESS:
+      await commands.compressHandler(args);
+      break;
+    case OPERATIONS.DECOMPRESS:
+      await commands.decompressHandler(args);
       break;
     default:
       console.error(ERROR_MESSAGES.INV_INPUT);

@@ -30,3 +30,13 @@ export const isPathExists = async path => {
 export const getClockRateInGHz = clockRate => {
   return Math.floor(clockRate / 100) / 10;
 };
+
+export const parseArgs = argString => {
+  if (argString.includes('"')) {
+    return argString
+      .match(/(?<=["])[^"]+/g)
+      .map(item => item.trim())
+      .filter(item => !!item);
+  }
+  return argString.split(' ');
+};

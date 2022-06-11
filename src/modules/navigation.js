@@ -12,8 +12,8 @@ export const cdHandler = async newPath => {
   process.env.APP_CUR_DIRECTORY = newCurrentDir;
 };
 
-export const upHandler = () => {
-  cdHandler('..');
+export const upHandler = async () => {
+  await cdHandler('..');
 };
 
 export const lsHandler = async () => {
