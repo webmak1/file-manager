@@ -9,3 +9,11 @@ export const getUserNameFromCommandLine = argv => {
 export const isExit = string => {
   return string === OPERATIONS.EXIT;
 };
+
+export const getOperationAndArguments = input => {
+  const trimmedInput = input.trim();
+  const idx = trimmedInput.indexOf(' ');
+  return idx !== -1
+    ? [trimmedInput.slice(0, idx), trimmedInput.slice(idx + 1)]
+    : [trimmedInput, null];
+};
