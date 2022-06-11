@@ -68,6 +68,11 @@ export const cpHandler = async args => {
       destFolderArg,
       fileName
     );
+
+    if (!(await isFileExists(originPath))) {
+      return logOperationError();
+    }
+
     const readable = createReadStream(originPath);
     const writable = createWriteStream(destPath);
     handleStreamError(readable);

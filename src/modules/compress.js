@@ -6,6 +6,7 @@ import {
   parseArgs,
   logOperationError,
   handleStreamError,
+  isFileExists,
 } from '../utils/index.js';
 
 export const compressHandler = async args => {
@@ -27,6 +28,10 @@ const createTransformingPipe = (args, transformStream) => {
     const [inputFilePath, outputFilePath] = pathsArr.map(item =>
       path.resolve(process.env.APP_CUR_DIRECTORY, item)
     );
+
+    if (!(await isFileExists(inputFilePath))) {
+      return logOperationError();
+    }
 
     const readable = createReadStream(inputFilePath);
     const writable = createWriteStream(outputFilePath);

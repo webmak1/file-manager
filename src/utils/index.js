@@ -23,7 +23,15 @@ export const getOperationAndArguments = input => {
     : [trimmedInput, null];
 };
 
-export const isPathExists = async path => {
+export const isFileExists = async path => {
+  return stat(path)
+    .then(stat => stat.isFile())
+    .catch(() => {
+      return false;
+    });
+};
+
+export const isDirExists = async path => {
   return stat(path)
     .then(stat => stat.isDirectory())
     .catch(() => {
