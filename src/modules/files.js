@@ -5,6 +5,7 @@ import {
   handleStreamError,
   logOperationError,
   parseArgs,
+  isFileExists,
 } from '../utils/index.js';
 
 export const catHandler = async args => {

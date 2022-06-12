@@ -11,15 +11,15 @@ import {
 
 export const compressHandler = async args => {
   const compressing = createBrotliCompress();
-  createTransformingPipe(args, compressing);
+  await createTransformingPipe(args, compressing);
 };
 
 export const decompressHandler = async args => {
   const decompressing = createBrotliDecompress();
-  createTransformingPipe(args, decompressing);
+  await createTransformingPipe(args, decompressing);
 };
 
-const createTransformingPipe = (args, transformStream) => {
+const createTransformingPipe = async (args, transformStream) => {
   try {
     const pathsArr = parseArgs(args);
 

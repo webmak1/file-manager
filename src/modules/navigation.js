@@ -1,9 +1,11 @@
 import path from 'path';
 import { readdir } from 'fs/promises';
-import { isDirExists, logOperationError } from '../utils/index.js';
+import { isDirExists, logOperationError, parseArgs } from '../utils/index.js';
 
 export const cdHandler = async newPath => {
-  const newCurrentDir = path.resolve(process.env.APP_CUR_DIRECTORY, newPath);
+  if (!newPath) return logOperationError();
+  const [pathArg] = parseArgs(newPath);
+  const newCurrentDir = path.resolve(process.env.APP_CUR_DIRECTORY, pathArg);
   if (!(await isDirExists(newCurrentDir))) {
     return logOperationError();
   }
